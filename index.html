@@ -1,0 +1,113 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joyeuse Saint-Valentin Chaïma 💖</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .envelope {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background: #fff;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        cursor: pointer;
+        transition: transform 0.5s;
+        overflow: hidden;
+    }
+    .envelope.open {
+        transform: rotateX(180deg);
+    }
+    .flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: #ff4b6e;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        transform-origin: top;
+        transition: transform 0.8s;
+        z-index: 2;
+    }
+    .envelope.open .flap {
+        transform: rotateX(180deg);
+    }
+    .letter {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        color: #ff4b6e;
+        font-size: 1.2em;
+        line-height: 1.5em;
+        opacity: 0;
+        transition: opacity 1s 0.5s;
+    }
+    .envelope.open .letter {
+        opacity: 1;
+    }
+    .petal {
+        position: absolute;
+        font-size: 20px;
+        animation: fall linear infinite;
+    }
+    @keyframes fall {
+        0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Pétales -->
+<script>
+for(let i=0;i<30;i++){
+    const petal = document.createElement('div');
+    petal.className='petal';
+    petal.style.left = Math.random()*100+'vw';
+    petal.style.animationDuration = (3+Math.random()*3)+'s';
+    petal.style.fontSize = (10+Math.random()*20)+'px';
+    petal.innerText='🌹';
+    document.body.appendChild(petal);
+}
+</script>
+
+<!-- Carte enveloppe -->
+<div class="envelope" onclick="openLetter(this)">
+    <div class="flap"></div>
+    <div class="letter">
+        💖 Joyeuse Saint-Valentin Chaïma 💖<br><br>
+        Aujourd’hui est un jour spécial… mais chaque jour avec toi l’est encore plus.  
+        Je t’aime  , ma moinamche 
+🇹🇳❤️🇰🇲
+    </div>
+</div>
+
+<script>
+function openLetter(el){
+    el.classList.add('open');
+}
+</script>
+
+</body>
+</html>
